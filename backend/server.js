@@ -6,7 +6,7 @@ const connectDB = require("./config/db");
 dotenv.config();
 const app = express();
 
-// ✅ CORS middleware
+// ✅ Global CORS + preflight handling
 app.use(cors({
   origin: "https://foodbridge-1-v01l.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
@@ -14,8 +14,13 @@ app.use(cors({
   credentials: true
 }));
 
-// ✅ Handle preflight requests for all routes (fixed)
-app.options("*", cors());
+app.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200); // respond to preflight
+  }
+  next();
+});
+
 
 // ✅ Middleware
 app.use(express.json());
