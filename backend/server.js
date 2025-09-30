@@ -8,14 +8,14 @@ const app = express();
 
 // ✅ CORS middleware
 app.use(cors({
-  origin: "https://foodbridge-1-v01l.onrender.com", // frontend URL
+  origin: "https://foodbridge-1-v01l.onrender.com",
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"],
   credentials: true
 }));
 
-// ✅ Handle preflight requests for all routes (fixed wildcard)
-app.options("/:path(*)", cors());
+// ✅ Handle preflight requests for all routes (fixed)
+app.options("*", cors());
 
 // ✅ Middleware
 app.use(express.json());
@@ -34,7 +34,7 @@ app.get("/", (req, res) => {
   res.send("FoodBridge API Running ✅");
 });
 
-// ✅ Optional: Catch-all route for unknown paths
+// ✅ Optional: Catch-all route
 app.all("*", (req, res) => {
   res.status(404).send("Route not found ❌");
 });
