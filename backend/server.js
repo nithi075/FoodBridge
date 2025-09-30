@@ -14,7 +14,10 @@ app.use(cors({
   credentials: true
 }));
 
-// ✅ Parse JSON
+// ✅ Handle preflight requests for all routes
+app.options("/*", cors());
+
+// ✅ Middleware
 app.use(express.json());
 
 // ✅ Connect to DB
@@ -27,8 +30,12 @@ app.use("/api/food", require("./routes/foodRoutes"));
 app.use("/api/auth", require("./routes/authRoutes"));
 
 // ✅ Root route
-app.get("/", (req, res) => res.send("FoodBridge API Running ✅"));
+app.get("/", (req, res) => {
+  res.send("FoodBridge API Running ✅");
+});
 
 // ✅ Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
