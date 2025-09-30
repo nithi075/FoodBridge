@@ -1,0 +1,70 @@
+/* RoleCards.css */
+
+.roles {
+  padding: 4rem 2rem;
+  background-color: #f9f4ef; /* soft beige */
+  text-align: center;
+}
+
+.roles h2 {
+  font-size: 2.5rem;
+  color: #5d4037; /* warm brown */
+  margin-bottom: 2rem;
+}
+
+.role-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.role-card {
+  background-color: #fff8f2; /* off-white */
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 250px;
+  flex: 1 1 200px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.role-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+}
+
+.role-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.role-card h3 {
+  padding: 1rem;
+  font-size: 1.2rem;
+  color: #7b5e57; /* medium brown */
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .role-card {
+    max-width: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .roles h2 {
+    font-size: 2rem;
+  }
+
+  .role-card img {
+    height: 150px;
+  }
+
+  .role-card h3 {
+    font-size: 1rem;
+  }
+}

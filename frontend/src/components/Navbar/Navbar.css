@@ -1,0 +1,210 @@
+/* --- Reset --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ----------------------------------
+ * NAVBAR STYLING
+ * ---------------------------------- */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: #fdf6f0;
+    color: #5d4037;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid #e0d7d1;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #5d4037;
+    text-decoration: none;
+}
+
+/* Desktop links */
+.nav-links.desktop {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.nav-links.desktop li a {
+    text-decoration: none;
+    color: #7b5e57;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.nav-links.desktop li a.active,
+.nav-links.desktop li a:hover {
+    color: #a1887f;
+}
+
+/* User dropdown */
+.user-dropdown {
+    position: relative;
+}
+
+.user-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #7b5e57;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background: #fff8f2;
+    color: #5d4037;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    display: none;
+    flex-direction: column;
+    min-width: 150px;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.dropdown-menu.open {
+    display: flex;
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    padding: 0.6rem 1rem;
+    border: none;
+    background: none;
+    text-align: left;
+    cursor: pointer;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #5d4037;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background: #f0e0d6;
+    color: #8d6e63;
+}
+
+/* Hamburger button */
+.menu-toggle.mobile {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+/* ----------------------------------
+ * SIDEBAR STYLING
+ * ---------------------------------- */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -260px; /* hide initially */
+    width: 260px;
+    height: 100%;
+    background: #e9ded5;
+    color: #5d4037;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: right 0.3s ease; /* Smooth slide-in effect */
+    z-index: 1100; /* Above Navbar and Overlay */
+}
+
+.sidebar.open {
+    right: 0; /* slide in */
+}
+
+.sidebar-user {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Sidebar links */
+.sidebar ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.sidebar ul li a,
+.sidebar ul li button {
+    color: #5d4037;
+    text-decoration: none;
+    font-weight: 500;
+    background: none;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    padding: 0.5rem 0;
+}
+
+.sidebar ul li a:hover,
+.sidebar ul li button:hover {
+    color: #8d6e63;
+    background: #f0e0d6;
+}
+
+/* Close button */
+.sidebar .close-btn {
+    align-self: flex-end;
+    background: none;
+    border: none;
+    color: #5d4037;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* ----------------------------------
+ * OVERLAY STYLING (For Sidebar Backdrop)
+ * ---------------------------------- */
+
+/* Base styles for the sidebar's transparent backdrop */
+.overlay.sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    z-index: 1050; /* Below the sidebar (1100) */
+    opacity: 1; 
+    transition: opacity 0.3s ease; /* Smooth fade effect */
+}
+
+/* Class to visually and functionally hide the overlay */
+.overlay.hidden {
+    pointer-events: none; /* Crucial: allows interaction with elements behind the overlay */
+    opacity: 0;
+}
+
+/* ----------------------------------
+ * MEDIA QUERIES
+ * ---------------------------------- */
+@media (max-width: 992px) {
+    .nav-links.desktop {
+        display: none; /* Hide desktop links */
+    }
+    .menu-toggle.mobile {
+        display: block; /* Show hamburger button */
+    }
+}

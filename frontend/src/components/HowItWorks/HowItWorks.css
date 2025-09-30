@@ -1,0 +1,74 @@
+/* HowItWorks.css */
+
+.how {
+  padding: 4rem 2rem;
+  background-color: #fdf6f0; /* soft beige */
+  text-align: center;
+}
+
+.how h2 {
+  font-size: 2.5rem;
+  color: #5d4037; /* warm brown */
+  margin-bottom: 2rem;
+}
+
+.steps {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.step {
+  background-color: #fff8f2; /* off-white */
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  flex: 1 1 200px;
+  max-width: 250px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0,0,0,0.1);
+}
+
+.step .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+}
+
+.step p {
+  font-size: 1.1rem;
+  color: #7b5e57; /* medium brown */
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .steps {
+    gap: 1rem;
+  }
+
+  .step {
+    flex: 1 1 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .how h2 {
+    font-size: 2rem;
+  }
+
+  .step .icon {
+    font-size: 2rem;
+  }
+
+  .step p {
+    font-size: 1rem;
+  }
+}

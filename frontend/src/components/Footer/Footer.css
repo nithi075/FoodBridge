@@ -1,0 +1,22 @@
+/* Footer.css */
+
+.footer {
+  background-color: #e9ded5; /* taupe/light neutral */
+  color: #5d4037; /* warm brown */
+  text-align: center;
+  padding: 1.5rem 2rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.95rem;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  .footer {
+    padding: 1rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

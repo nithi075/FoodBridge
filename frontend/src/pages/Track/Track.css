@@ -1,0 +1,43 @@
+/* Track.css */
+
+.track-section {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.track-cards {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.track-card {
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 200px;
+  text-align: center;
+}
+
+.track-card h2 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.track-card p {
+  margin: 0.5rem 0 0 0;
+  font-size: 1rem;
+}
+
+.meals-card {
+  background: #fbe9e7;
+}
+
+.food-card {
+  background: #f1f8e9;
+}
+
+.cities-card {
+  background: #e3f2fd;
+}
