@@ -14,10 +14,7 @@ app.use(cors({
   credentials: true
 }));
 
-// ✅ Handle preflight requests globally
-app.options("*", cors());
-
-// Middleware
+// ✅ Parse JSON
 app.use(express.json());
 
 // ✅ Connect to DB
@@ -27,7 +24,7 @@ connectDB();
 app.use("/api/request", require("./routes/requestRoutes"));
 app.use("/api/community", require("./routes/communityRoutes"));
 app.use("/api/food", require("./routes/foodRoutes"));
-app.use("/api/auth", require("./routes/authRoutes")); // <-- Mount auth routes
+app.use("/api/auth", require("./routes/authRoutes"));
 
 // ✅ Root route
 app.get("/", (req, res) => res.send("FoodBridge API Running ✅"));
