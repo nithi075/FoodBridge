@@ -14,8 +14,8 @@ app.use(cors({
   credentials: true
 }));
 
-// ✅ Handle preflight requests for all routes
-app.options("/*", cors());
+// ✅ Handle preflight requests for all routes (fixed wildcard)
+app.options("/:path(*)", cors());
 
 // ✅ Middleware
 app.use(express.json());
@@ -32,6 +32,11 @@ app.use("/api/auth", require("./routes/authRoutes"));
 // ✅ Root route
 app.get("/", (req, res) => {
   res.send("FoodBridge API Running ✅");
+});
+
+// ✅ Optional: Catch-all route for unknown paths
+app.all("*", (req, res) => {
+  res.status(404).send("Route not found ❌");
 });
 
 // ✅ Start server
